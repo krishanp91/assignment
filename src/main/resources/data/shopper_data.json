@@ -1,0 +1,19 @@
+[
+  {
+    "shopperId": "S-1000",
+    "shelf": [
+      {
+        "productId": "MB-2093193398",
+        "relevancyScore": 31.089209569320897
+      },
+      {
+        "productId": "BB-2144746855",
+        "relevancyScore": 55.16626010671777
+      },
+      {
+        "productId": "MD-543564697",
+        "relevancyScore": 73.01492966268303
+      }
+    ]
+  }
+]
