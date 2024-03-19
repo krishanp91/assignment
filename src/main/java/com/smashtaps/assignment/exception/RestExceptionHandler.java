@@ -19,4 +19,14 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         exceptionMessage.setPath(errorPath);
         return new ResponseEntity<>(exceptionMessage, HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
+    @ExceptionHandler(BadRequestException.class)
+    public ResponseEntity<ExceptionMessage> handleInvalidJsonException(BadRequestException ex, WebRequest request) {
+        String errorPath = ((ServletWebRequest) request).getRequest().getServletPath();
+        ExceptionMessage exceptionMessage = new ExceptionMessage();
+        exceptionMessage.setMessage(ex.getMessage());
+        exceptionMessage.setError(ex.getClass().getCanonicalName());
+        exceptionMessage.setPath(errorPath);
+        return new ResponseEntity<>(exceptionMessage, HttpStatus.BAD_REQUEST);
+    }
 }

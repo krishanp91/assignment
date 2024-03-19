@@ -14,6 +14,6 @@ public interface ShopperRepository extends JpaRepository<Shopper, Integer> {
     Optional<Shopper> findByShopperId(String shopperId);
 
     @Query("SELECT s FROM Shopper s JOIN s.shelves v JOIN v.product p WHERE s.shopperId = :shopperId " +
-            "AND p.category = :category AND p.brand = :brand")
+            "AND p.category LIKE %:category% AND p.brand LIKE %:brand%")
     Page<Shopper> filterShopperDetails(String shopperId, String category, String brand, Pageable pageable);
 }
